@@ -13,6 +13,12 @@ abstract class IntSet {
   def union(other: IntSet): IntSet
 }
 
+object IntSet {
+  def apply(): IntSet = Empty()
+  def apply(x: Int): IntSet = Empty().incl(x)
+  def apply(x: Int, y: Int): IntSet = Empty().incl(x).incl(y)
+}
+
 @unused
 case class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
   def incl(x: Int): IntSet = {
