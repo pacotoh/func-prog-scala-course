@@ -30,12 +30,12 @@ def listsMain(): Unit = {
   val myCons: Cons[Float] = new Cons[Float](3.14, myNil)
   val myCons2: Cons[Float] = new Cons[Float](2.72, myCons)
 
-  // Se puede omitir el tipo del Cons en el new
+  // We can omit the type of Cons in the new
   //val myCons: Cons[Float] = new Cons(3.14, myNil)
   println(myCons)
 
   println(nth[Int](myCons2.asInstanceOf[List[Int]], 1))
 
-  // Otra forma (directa) de crear Cons en cadena
+  // Chaining Cons
   println(nth(Cons(1, Cons(2, Cons(3, Nil()))), 1))
 }

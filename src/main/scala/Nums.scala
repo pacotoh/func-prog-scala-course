@@ -11,7 +11,7 @@ abstract class Nat {
 object Zero extends Nat {
   override def isZero: Boolean = true
 
-  // Lo podemos dejar como "no implementado"
+  // We can leave it as "not implemented"
   override def predecessor: Nat = ???
 
   override def successor: Nat = Succ(this)
