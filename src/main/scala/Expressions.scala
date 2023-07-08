@@ -1,10 +1,13 @@
-trait Expr
+enum Expr {
+  // object Expr allows name collision avoidance
+  // ADTs: Algebraic data types (Number, Sum, Var, Prod)
+  case Number(n: Int)
+  case Sum(e1: Expr, e2: Expr)
+  case Var(name: String)
+  case Prod(e1: Expr, e2: Expr)
+}
 
-case class Number(n: Int) extends Expr
-case class Sum(e1: Expr, e2: Expr) extends Expr
-case class Var(name: String) extends Expr
-case class Prod(e1: Expr, e2: Expr) extends Expr
-
+import Expr.*
 
 def eval(e: Expr): Int = e match {
   case Number(n) => n
@@ -27,7 +30,7 @@ def showP(e: Expr): String = e match {
 }
 
 @main
-def expr_main(): Unit = {
+def exprMain(): Unit = {
   val sum: Sum = Sum(Number(2), Prod(Sum(Number(3), Number(1)), Number(2)))
   println(eval(sum))
   println(show(sum))
